@@ -12,12 +12,56 @@ knitr::opts_chunk$set(echo = TRUE)
 # Loading Libraries
 ```{r}
 library(readr)
+library(magrittr)
 ```
 
 
 ```{r}
 happiness <- read_csv("C:\\Users\\james\\OneDrive\\Desktop\\PSTAT 231\\final project\\final-project-data-memo\\world-happiness-report-2021.csv")
 
-happiness
+happiness %>%
+  head()
+```
+```{r}
+names(happiness)
 ```
 
+# An overview of my dataset
+-What does it include? \
+-Where and how will you be obtaining it? Include the link and source. \
+-About how many observations? How many predictors? \
+-What types of variables will you be working with? \
+-Is there any missing data? About how much? Do you have an idea for how to handle it? \
+\
+The dataset includes happiness scores and rankings.\
+I obtained this dataset from Kaggle, https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2021 \
+There are 149 observations and we are going to use 6 predictors in the dataset; Logged GDP per capita, Social support, Healthy life expectancy, Freedom to make life choices, Generosity, and Perceptions of corruption. \
+There are no missing values so we don't have to worry about how to handle it.
+
+# An overview of your research question
+What variable(s) are you interested in predicting? What question(s) are you interested in answering? \
+Name your response/outcome variable(s) and briefly describe it/them. \
+Will these questions be best answered with a classification or regression approach? \
+Which predictors do you think will be especially useful? \
+Is the goal of your model descriptive, predictive, inferential, or a combination? Explain. \
+\
+I'm interested in predicting happiness score using different predictors.
+The response would be Ladder score in the dataset scored in a scale of 0 to 10. \
+This question would be best answered with a regression approach because the response variables are quantitative. \
+I'm expecting healthy lift expectancy and freedom to make life choices to be really useful in predicting happiness score. \
+My goal of the model is predictive because my aim is to predict happiness score. \
+
+
+
+# Your proposed project timeline
+When do you plan on having your data set loaded, beginning your exploratory data analysis, etc? \
+Provide a general timeline for the rest of the quarter. \
+\
+I already have the data set loaded and I am planning to spend 3-4 hours at least on the weekends for the rest of the quarter. \
+For the first half of the timeline, I would focus on data processing and identifying relationships between variables. For the rest half of the timeline, I would focus on choosing a right model and data visualizing. \
+
+# Any questions or concerns
+Are there any problems or difficult aspects of the project you anticipate? \
+Any specific questions you have for me/the instructional team?\
+\
+I am thinking about how to deal with the columns associated with dystopia, a hypothetical country that has values equal to the world's lowest national averages for each of the six factors. \

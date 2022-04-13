@@ -173,7 +173,8 @@ pre code {
 
 <div id="loading-libraries" class="section level1">
 <h1>Loading Libraries</h1>
-<pre class="r"><code>library(readr)</code></pre>
+<pre class="r"><code>library(readr)
+library(magrittr)</code></pre>
 <pre class="r"><code>happiness &lt;- read_csv(&quot;C:\\Users\\james\\OneDrive\\Desktop\\PSTAT 231\\final project\\final-project-data-memo\\world-happiness-report-2021.csv&quot;)</code></pre>
 <pre><code>## Rows: 149 Columns: 20</code></pre>
 <pre><code>## -- Column specification --------------------------------------------------------
@@ -183,27 +184,89 @@ pre code {
 <pre><code>## 
 ## i Use `spec()` to retrieve the full column specification for this data.
 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<pre class="r"><code>happiness</code></pre>
-<pre><code>## # A tibble: 149 x 20
-##    `Country name` `Regional indica~ `Ladder score` `Standard error~ upperwhisker
-##    &lt;chr&gt;          &lt;chr&gt;                      &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;
-##  1 Finland        Western Europe              7.84            0.032         7.90
-##  2 Denmark        Western Europe              7.62            0.035         7.69
-##  3 Switzerland    Western Europe              7.57            0.036         7.64
-##  4 Iceland        Western Europe              7.55            0.059         7.67
-##  5 Netherlands    Western Europe              7.46            0.027         7.52
-##  6 Norway         Western Europe              7.39            0.035         7.46
-##  7 Sweden         Western Europe              7.36            0.036         7.43
-##  8 Luxembourg     Western Europe              7.32            0.037         7.40
-##  9 New Zealand    North America an~           7.28            0.04          7.36
-## 10 Austria        Western Europe              7.27            0.036         7.34
-## # ... with 139 more rows, and 15 more variables: lowerwhisker &lt;dbl&gt;,
-## #   Logged GDP per capita &lt;dbl&gt;, Social support &lt;dbl&gt;,
-## #   Healthy life expectancy &lt;dbl&gt;, Freedom to make life choices &lt;dbl&gt;,
-## #   Generosity &lt;dbl&gt;, Perceptions of corruption &lt;dbl&gt;,
-## #   Ladder score in Dystopia &lt;dbl&gt;, Explained by: Log GDP per capita &lt;dbl&gt;,
-## #   Explained by: Social support &lt;dbl&gt;,
-## #   Explained by: Healthy life expectancy &lt;dbl&gt;, ...</code></pre>
+<pre class="r"><code>happiness %&gt;%
+  head()</code></pre>
+<pre><code>## # A tibble: 6 x 20
+##   `Country name` `Regional indica~ `Ladder score` `Standard error ~ upperwhisker
+##   &lt;chr&gt;          &lt;chr&gt;                      &lt;dbl&gt;             &lt;dbl&gt;        &lt;dbl&gt;
+## 1 Finland        Western Europe              7.84             0.032         7.90
+## 2 Denmark        Western Europe              7.62             0.035         7.69
+## 3 Switzerland    Western Europe              7.57             0.036         7.64
+## 4 Iceland        Western Europe              7.55             0.059         7.67
+## 5 Netherlands    Western Europe              7.46             0.027         7.52
+## 6 Norway         Western Europe              7.39             0.035         7.46
+## # ... with 15 more variables: lowerwhisker &lt;dbl&gt;, Logged GDP per capita &lt;dbl&gt;,
+## #   Social support &lt;dbl&gt;, Healthy life expectancy &lt;dbl&gt;,
+## #   Freedom to make life choices &lt;dbl&gt;, Generosity &lt;dbl&gt;,
+## #   Perceptions of corruption &lt;dbl&gt;, Ladder score in Dystopia &lt;dbl&gt;,
+## #   Explained by: Log GDP per capita &lt;dbl&gt;, Explained by: Social support &lt;dbl&gt;,
+## #   Explained by: Healthy life expectancy &lt;dbl&gt;,
+## #   Explained by: Freedom to make life choices &lt;dbl&gt;, ...</code></pre>
+<pre class="r"><code>names(happiness)</code></pre>
+<pre><code>##  [1] &quot;Country name&quot;                              
+##  [2] &quot;Regional indicator&quot;                        
+##  [3] &quot;Ladder score&quot;                              
+##  [4] &quot;Standard error of ladder score&quot;            
+##  [5] &quot;upperwhisker&quot;                              
+##  [6] &quot;lowerwhisker&quot;                              
+##  [7] &quot;Logged GDP per capita&quot;                     
+##  [8] &quot;Social support&quot;                            
+##  [9] &quot;Healthy life expectancy&quot;                   
+## [10] &quot;Freedom to make life choices&quot;              
+## [11] &quot;Generosity&quot;                                
+## [12] &quot;Perceptions of corruption&quot;                 
+## [13] &quot;Ladder score in Dystopia&quot;                  
+## [14] &quot;Explained by: Log GDP per capita&quot;          
+## [15] &quot;Explained by: Social support&quot;              
+## [16] &quot;Explained by: Healthy life expectancy&quot;     
+## [17] &quot;Explained by: Freedom to make life choices&quot;
+## [18] &quot;Explained by: Generosity&quot;                  
+## [19] &quot;Explained by: Perceptions of corruption&quot;   
+## [20] &quot;Dystopia + residual&quot;</code></pre>
+</div>
+<div id="an-overview-of-my-dataset" class="section level1">
+<h1>An overview of my dataset</h1>
+<p>-What does it include?<br />
+-Where and how will you be obtaining it? Include the link and source.<br />
+-About how many observations? How many predictors?<br />
+-What types of variables will you be working with?<br />
+-Is there any missing data? About how much? Do you have an idea for how to handle it?<br />
+<br />
+The dataset includes happiness scores and rankings.<br />
+I obtained this dataset from Kaggle, <a href="https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2021" class="uri">https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2021</a><br />
+There are 149 observations and we are going to use 6 predictors in the dataset; Logged GDP per capita, Social support, Healthy life expectancy, Freedom to make life choices, Generosity, and Perceptions of corruption.<br />
+There are no missing values so we don’t have to worry about how to handle it.</p>
+</div>
+<div id="an-overview-of-your-research-question" class="section level1">
+<h1>An overview of your research question</h1>
+<p>What variable(s) are you interested in predicting? What question(s) are you interested in answering?<br />
+Name your response/outcome variable(s) and briefly describe it/them.<br />
+Will these questions be best answered with a classification or regression approach?<br />
+Which predictors do you think will be especially useful?<br />
+Is the goal of your model descriptive, predictive, inferential, or a combination? Explain.<br />
+<br />
+I’m interested in predicting happiness score using different predictors. The response would be Ladder score in the dataset scored in a scale of 0 to 10.<br />
+This question would be best answered with a regression approach because the response variables are quantitative.<br />
+I’m expecting healthy lift expectancy and freedom to make life choices to be really useful in predicting happiness score.<br />
+My goal of the model is predictive because my aim is to predict happiness score.<br />
+</p>
+</div>
+<div id="your-proposed-project-timeline" class="section level1">
+<h1>Your proposed project timeline</h1>
+<p>When do you plan on having your data set loaded, beginning your exploratory data analysis, etc?<br />
+Provide a general timeline for the rest of the quarter.<br />
+<br />
+I already have the data set loaded and I am planning to spend 3-4 hours at least on the weekends for the rest of the quarter.<br />
+For the first half of the timeline, I would focus on data processing and identifying relationships between variables. For the rest half of the timeline, I would focus on choosing a right model and data visualizing.<br />
+</p>
+</div>
+<div id="any-questions-or-concerns" class="section level1">
+<h1>Any questions or concerns</h1>
+<p>Are there any problems or difficult aspects of the project you anticipate?<br />
+Any specific questions you have for me/the instructional team?<br />
+<br />
+I am thinking about how to deal with the columns associated with dystopia, a hypothetical country that has values equal to the world’s lowest national averages for each of the six factors.<br />
+</p>
 </div>
 
 
